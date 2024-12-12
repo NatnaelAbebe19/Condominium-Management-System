@@ -1,9 +1,12 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import GuestLayout from "@/Layout/GuestLayout.vue";
+import Hero from "@/components/Hero.vue";
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <GuestLayout>
+    <main>
+      <Hero />
+    </main>
+  </GuestLayout>
 </template>
