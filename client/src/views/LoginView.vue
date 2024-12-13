@@ -1,25 +1,45 @@
 <script setup>
 import GuestLayout from '@/Layout/GuestLayout.vue';
 import { RouterLink } from 'vue-router';
+import { useAuthStore } from "@/stores/auth";
+import { storeToRefs } from "pinia";
+import { onMounted, reactive } from "vue";
+const authStore = useAuthStore();
+const { errors } = storeToRefs(useAuthStore());
+const formData = reactive({
+    email: "",
+    password: "",
+});
+const submitForm = () => {
+    authStore.authenticate("login", formData);
+};
+
 
 </script>
 
 <template>
     <GuestLayout>
-        <form class="max-w-md mx-auto mt-20 mb-60 shadow-lg px-12 py-20 rounded-lg space-y-8">
+        <form @submit.prevent="submitForm"
+            class="max-w-md mx-auto mt-20 mb-60 shadow-lg px-12 py-20 rounded-lg space-y-8">
             <h1 class="text-green-700 text-xl font-bold mb-6">Login to Kombolcha CMS</h1>
 
             <div class="mb-5">
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
-                <input type="email" id="email"
+                <input type="email" id="email" v-model="formData.email"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     placeholder="name@gmail.com" required />
+                <p v-if="errors.email" class="text-sm text-red-500">
+                    {{ errors.email }}
+                </p>
             </div>
             <div class="mb-5">
                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">password</label>
-                <input type="password" id="password"
+                <input type="password" id="password" v-model="formData.password"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     required />
+                <p v-if="errors.password" class="text-sm text-red-500">
+                    {{ errors.password[0] }}
+                </p>
             </div>
             <RouterLink to="/register">
                 <p

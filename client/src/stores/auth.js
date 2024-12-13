@@ -40,7 +40,9 @@ export const useAuthStore = defineStore("authStore", {
         console.log(this.user);
         this.errors = {};
         localStorage.setItem("token", data.token);
+        console.log("data", data.user.role);
         this.user = data.user;
+
         router.push({ name: "home" });
       }
     },
@@ -62,7 +64,7 @@ export const useAuthStore = defineStore("authStore", {
         this.user = null;
         this.errors = {};
         localStorage.removeItem("token");
-        this.router.push({ name: "home" });
+        router.push({ name: "home" });
       }
     },
   },

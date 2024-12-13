@@ -1,0 +1,108 @@
+add maintenance request to the customer's navbar 
+
+
+The Condominium Management System (CMS) described in the document includes several key features and functionalities designed to address the issues of manual data management and streamline condominium management in Kombolcha. Here's a summary of the main features the system is expected to have:
+1. User Management
+
+    Authentication and Authorization:
+        Secure login and role-based access control for administrators, customers, and renters.
+        User roles include Administrator, Customer, and Renter.
+
+    Account Management:
+        Create, edit, delete, and update user accounts.
+        Role assignment and permission management.
+
+2. Condominium Management
+
+    Housing Management:
+        Register, update, delete, and post details of condominium units.
+        Manage information about location, features, and availability.
+
+    House Distribution:
+        Automate mapping and allocation of houses to eligible customers based on specific criteria.
+
+3. Customer Services
+
+    Condominium Search:
+        Customers can view available units and select based on preferences.
+
+    Reservation Management:
+        Reserve or cancel condominium units online.
+
+    Request and Feedback Mechanisms:
+        Submit maintenance requests and general feedback.
+        View responses and updates from administrators.
+
+4. Notifications
+
+    Automated Alerts:
+        Notify users about payment deadlines, updates, and general announcements.
+
+5. Reporting and Analytics
+
+    Generate Reports:
+        For user activity, condominium allocations, and financial transactions.
+        Insights for administrative decision-making.
+
+6. Maintenance Services
+
+    Maintenance Requests:
+        Mechanism for reporting and tracking maintenance needs.
+
+7. User Interface and Accessibility
+
+    User-Friendly Design:
+        Simplified interface for easy navigation.
+        Prototypes for forms, account management, and dashboards.
+
+8. Security Features
+
+    Data Protection:
+        Encrypted user data (e.g., passwords).
+        Restricted access based on roles.
+
+9. System Design and Performance
+
+    Efficient Data Handling:
+        Minimize redundancy and improve data consistency.
+        Quick response times (2-3 seconds).
+
+    Persistence and Backup:
+        Permanent data storage with backup options for reliability.
+
+10. Integration and Scalability
+
+    Modifiability and Portability:
+        Adaptable to future technological advancements.
+        Compatible with various platforms and devices.
+
+11. Non-Functional Requirements
+
+    Usability:
+        Easy to learn and operate.
+
+    Availability:
+        Accessible 24/7 with internet connectivity.
+
+    Error Handling:
+        User-friendly error messages for invalid inputs.
+
+12. Role-Specific Features
+
+    Administrator:
+        Manage accounts, reports, notifications, and system operations.
+
+    Renter:
+        Post and manage owned units.
+        Respond to customer inquiries and requests.
+
+    Customer:
+        Register, view condominium options, and manage reservations.
+
+Would you like a detailed analysis of any specific feature or feedback on potential improvements?
+
+
+
+
+
+

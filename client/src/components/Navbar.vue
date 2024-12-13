@@ -21,37 +21,29 @@ const HandleLogout = () => {
             <RouterLink to="/">
                 <h2 class=" text-green-700 text-3xl font-bold">Kombolcha CMS</h2>
             </RouterLink>
-
-            <button
-                class="lg:hidden w-10 h-10 ml-auto flex items-center justify-center text-green-700 border border-green-700 rounded-md"
-                @click="navbarOpen = !navbarOpen">
-                <i data-feather="menu"></i>
-            </button>
-
         </div>
 
         <ul class="lg:flex flex-col lg:flex-row lg:items-center lg:mx-auto lg:space-x-8 xl:space-x-16">
 
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <a href="#">Landing</a>
+                <RouterLink :to="{ name: 'home' }">Home</RouterLink>
             </li>
 
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <a href="#">Pages</a>
+                <RouterLink :to="{ name: 'register' }">Rentals</RouterLink>
             </li>
 
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <a href="#">Contact</a>
+                <RouterLink href="#">Contact</RouterLink>
             </li>
 
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <a href="#">About</a>
+                <RouterLink :to="{ name: 'about' }">About</RouterLink>
             </li>
-
         </ul>
 
         <div class="flex gap-x-4 " v-if="!authStore.user">
@@ -63,9 +55,8 @@ const HandleLogout = () => {
                 class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500">
                 Register
             </RouterLink>
-
         </div>
-        <div class="flex items-center gap-x-4" v-else>
+        <div class="flex items-center gap-x-4 cursor-pointer" v-else>
             <h1 class="font-semibold" @click="toggleDropdown">{{ authStore.user.name }}</h1>
             <div class="cursor-pointer md:block rounded-full bg-green-700 p-3" @click="toggleDropdown">
                 <svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -78,7 +69,6 @@ const HandleLogout = () => {
                     <li class="px-4 py-2 hover:bg-red-100 cursor-pointer" @click="HandleLogout">Log Out</li>
                 </ul>
             </div>
-
         </div>
     </nav>
 </template>
