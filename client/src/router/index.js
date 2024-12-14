@@ -6,6 +6,8 @@ import ChooseRole from '@/views/ChooseRole.vue'
 import { useAuthStore } from "@/stores/auth";
 import RenterHome from '@/views/RenterHome.vue'
 import AboutView from '@/views/AboutView.vue'
+import ContactView from '@/views/ContactView.vue'
+import RentalView from '@/views/RentalView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -31,11 +33,24 @@ const router = createRouter({
       component: AboutView,
     },
     {
+      path: '/contact',
+      name: 'contact',
+      component: ContactView,
+    },
+    {
+      path: '/rentals',
+      name: 'rentals',
+      component: RentalView,
+      meta: {auth: true}
+    },
+
+    {
       path: '/renterHome',
       name: 'renterHome',
       component: RenterHome,
       meta: { auth: true },
-    },
+    }
+
   ],
 });
 
@@ -48,6 +63,10 @@ router.beforeEach(async (to, from) => {
     return { name: "renterHome" };
   } 
 
+  if(!authStore.user && to.meta.auth){
+    return {name: "login"}
+  }
+  
 });
 
 export default router

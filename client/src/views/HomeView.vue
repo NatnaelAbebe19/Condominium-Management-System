@@ -1,5 +1,6 @@
 <script setup>
 import GuestLayout from "@/Layout/GuestLayout.vue";
+import Contact from "@/components/Contact.vue";
 import Hero from "@/components/Hero.vue";
 </script>
 
@@ -7,6 +8,7 @@ import Hero from "@/components/Hero.vue";
   <GuestLayout>
     <main>
       <Hero />
+      <Contact />
     </main>
   </GuestLayout>
 </template>
