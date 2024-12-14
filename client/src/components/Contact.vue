@@ -4,7 +4,7 @@ import bookingImage from '@/assets/image/book.png'
 </script>
 
 <template>
-    <div class="container max-w-screen-xl mx-auto px-4 xl:relative">
+    <div class="container max-w-screen-xl mx-auto xl:relative">
 
         <div class="bg-green-800 flex flex-col lg:flex-row items-center justify-evenly py-14 rounded-3xl">
 

@@ -7,11 +7,7 @@ import Contact from '@/components/Contact.vue';
 <template>
     <GuestLayout>
         <section class="bg-white py-10 md:py-16">
-
             <Contact />
-
-            <!-- container.// -->
-
         </section>
     </GuestLayout>
 </template>

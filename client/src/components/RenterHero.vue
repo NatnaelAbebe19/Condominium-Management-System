@@ -4,7 +4,7 @@ import home from "../../src/assets/image/condominiumImage.jpg"
 </script>
 
 <template>
-    <div class="flex items-center justify-center xl:justify-start h-screen">
+    <div class="flex items-center justify-center xl:justify-start h-[75vh]">
         <div class="-mt-72 text-center xl:text-left">
             <h1 class="font-semibold text-4xl md:text-6xl lg:text-7xl text-gray-900 leading-normal mb-6">Sell or rent
                 your

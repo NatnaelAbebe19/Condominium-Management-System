@@ -8,6 +8,7 @@ import RenterHome from '@/views/RenterHome.vue'
 import AboutView from '@/views/AboutView.vue'
 import ContactView from '@/views/ContactView.vue'
 import RentalView from '@/views/RentalView.vue'
+import RentPost from '@/views/RentPost.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -41,6 +42,12 @@ const router = createRouter({
       path: '/rentals',
       name: 'rentals',
       component: RentalView,
+      meta: {auth: true}
+    },
+    {
+      path: '/rentPost',
+      name: 'rentPost',
+      component: RentPost,
       meta: {auth: true}
     },
 

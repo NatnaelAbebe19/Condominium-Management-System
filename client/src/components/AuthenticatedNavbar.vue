@@ -75,12 +75,12 @@ const state = reactive({
                                     </button>
                                     </MenuItem>
                                     <MenuItem v-slot="{ active }">
-                                    <button :class="[
+                                    <RouterLink :to="{ name: 'rentPost' }" :class="[
                                         active ? 'bg-green-700 text-white' : 'text-gray-900',
                                         'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                                     ]">
                                         Post Property
-                                    </button>
+                                    </RouterLink>
                                     </MenuItem>
                                 </div>
 

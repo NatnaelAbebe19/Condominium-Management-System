@@ -67,7 +67,7 @@ const HandleLogout = () => {
             </div>
             <div v-if="isDropdownOpen" class="absolute -right-20 top-24 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
                 <ul>
-                    <li class="px-4 py-2 hover:bg-red-100 cursor-pointer" @click="HandleLogout">Log Out</li>
+                    <li class="px-4 py-2 hover:bg-slate-200 cursor-pointer" @click="HandleLogout">Log Out</li>
                 </ul>
             </div>
         </div>
