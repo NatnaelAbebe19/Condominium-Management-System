@@ -35,6 +35,17 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    public function rentalsAsRenter()
+    {
+        return $this->hasMany(Rental::class, 'renter_id');
+    }
+
+    // Rentals where the user is the customer
+    public function rentalsAsCustomer()
+    {
+        return $this->hasMany(Rental::class, 'customer_id');
+    }
     /**
      * Get the attributes that should be cast.
      *

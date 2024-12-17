@@ -5,55 +5,56 @@ import AuthenticatedLayout from '@/Layout/AuthenticatedLayout.vue';
 
 <template>
     <AuthenticatedLayout>
-        <form class="max-w-3xl mx-auto">
+        <form class="max-w-xl mx-auto mt-10 ">
 
-
-
-
-            <div class="max-w-md">
-                <label for="bedrooms-input" class="block mb-2 text-sm font-medium text-gray-900 ">Choose
-                    quantity:</label>
-                <div class="relative flex items-center max-w-[11rem]">
-                    <button type="button" id="decrement-button" data-input-counter-decrement="bedrooms-input"
-                        class="bg-gray-100  hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
-                        <svg class="w-3 h-3 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 18 2">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 1h16" />
-                        </svg>
-                    </button>
-                    <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1"
-                        data-input-counter-max="5" aria-describedby="helper-text-explanation"
-                        class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 "
-                        placeholder="" value="3" required />
-                    <div
-                        class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
-                        <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9" />
-                        </svg>
-                        <span>Bedrooms</span>
+            <div class="border-2 rounded-lg p-8 ">
+                <h2 class="text-3xl font-semibold text-green-700 text-center py-4">Post your Porperty</h2>
+                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                    <div>
+                        <label for="location" class="block mb-2 text-sm font-medium text-gray-900 ">Location</label>
+                        <input type="text" id="location"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="Bole" required />
                     </div>
-                    <button type="button" id="increment-button" data-input-counter-increment="bedrooms-input"
-                        class="bg-gray-100  hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
-                        <svg class="w-3 h-3 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </button>
+                    <div>
+                        <label for="countries"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
+                            option</label>
+                        <select id="countries"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option selected>Choose the status</option>
+                            <option value="available">Available</option>
+                            <option disabled value="occupied">Occupied</option>
+                            <option value="maintenance">Maintenance</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="bedrooms" class="block mb-2 text-sm font-medium text-gray-900 ">bedrooms</label>
+                        <input type="number" id="bedrooms"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="" required />
+                    </div>
+                    <div>
+                        <label for="area" class="block mb-2 text-sm font-medium text-gray-900 ">area</label>
+                        <input type="number" id="area"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="" required />
+                    </div>
+                    <div>
+                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 ">price</label>
+                        <input type="number" id="price"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="" required />
+                    </div>
+                    <div>
+                        <label for="floor" class="block mb-2 text-sm font-medium text-gray-900 ">Floor</label>
+                        <input type="number" id="floor" max="6"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="" required />
+                    </div>
                 </div>
-                <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500">Please select the
-                    number of bedrooms.</p>
-            </div>
-            <div>
-                <div>
-                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Location</label>
-                    <input type="text" id="first_name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="Piassa" required />
-                </div>
+
+
                 <div class="flex items-center justify-center w-full">
                     <label for="dropzone-file"
                         class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 ">
@@ -73,6 +74,8 @@ import AuthenticatedLayout from '@/Layout/AuthenticatedLayout.vue';
                         <input id="dropzone-file" type="file" class="hidden" />
                     </label>
                 </div>
+                <button type="submit"
+                    class="text-white bg-green-700 text-bold hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center my-4">Submit</button>
             </div>
         </form>
 

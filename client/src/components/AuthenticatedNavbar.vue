@@ -5,17 +5,17 @@ import { ref, reactive } from 'vue';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
 const authStore = useAuthStore();
-console.log(authStore.user);
+console.log('role: ', authStore.user.role);
 const isDropdownOpen = ref(false);
 const toggleDropdown = () => {
     isDropdownOpen.value = !isDropdownOpen.value;
 };
+
 const HandleLogout = () => {
     authStore.logout();
 }
 const state = reactive({
     Featuresactive: false,
-
 });
 </script>
 
@@ -23,7 +23,7 @@ const state = reactive({
     <nav class="flex-wrap lg:flex items-center py-14 xl:relative z-10 border-b-2">
 
         <div class="flex items-center justify-between mb-10 lg:mb-0">
-            <RouterLink to="/">
+            <RouterLink :to="{ name: 'home' }">
                 <h2 class=" text-green-700 text-3xl font-bold">Kombolcha CMS</h2>
             </RouterLink>
         </div>
@@ -31,12 +31,11 @@ const state = reactive({
         <ul class="lg:flex flex-col lg:flex-row lg:items-center lg:mx-auto lg:space-x-8 xl:space-x-16">
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <a href="#">Home</a>
+                <RouterLink :to="{ name: 'home' }">Home</RouterLink>
             </li>
-
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <div class="">
+                <div v-if="authStore.user.role === 'renter'" class="">
                     <Menu as="div" class="relative inline-block text-left">
                         <div>
                             <MenuButton
@@ -88,33 +87,25 @@ const state = reactive({
                         </transition>
                     </Menu>
                 </div>
+                <div v-else>
+                    <RouterLink :to="{ name: 'rentals' }">Rentals</RouterLink>
+                </div>
             </li>
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <a href="#">Contact</a>
+                <RouterLink :to="{ name: 'authcontact' }">Contact</RouterLink>
             </li>
 
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <a href="#">About</a>
+                <RouterLink :to="{ name: 'authabout' }">About</RouterLink>
             </li>
             <li
                 class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                <a href="#">Support</a>
+                <a href="mailto:minwyelet@gmail.com">Support</a>
             </li>
         </ul>
-
-        <div class="flex gap-x-4 " v-if="!authStore.user">
-            <RouterLink :to="{ name: 'login' }"
-                class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg bg-green-700 font-semibold hover:text-green-700 text-lg hover:bg-white text-white transition ease-linear duration-500">
-                Login
-            </RouterLink>
-            <RouterLink :to="{ name: 'register' }"
-                class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500">
-                Register
-            </RouterLink>
-        </div>
-        <div class="flex items-center gap-x-4 cursor-pointer" v-else>
+        <div class="flex items-center gap-x-4 cursor-pointer">
             <h1 class="font-semibold" @click="toggleDropdown">{{ authStore.user.name }}</h1>
             <div class="cursor-pointer md:block rounded-full bg-green-700 p-3" @click="toggleDropdown">
                 <svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -124,7 +115,7 @@ const state = reactive({
             </div>
             <div v-if="isDropdownOpen" class="absolute -right-20 top-24 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
                 <ul>
-                    <li class="px-4 py-2 hover:bg-red-100 cursor-pointer" @click="HandleLogout">Log Out</li>
+                    <li class="px-4 py-2 hover:bg-slate-200 cursor-pointer" @click="HandleLogout">Log Out</li>
                 </ul>
             </div>
         </div>
