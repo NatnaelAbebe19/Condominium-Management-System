@@ -15,7 +15,7 @@ console.log(authStore.user);
             <p class="font-normal text-xl text-gray-400 leading-relaxed mb-12">Having a sweet home is everyone's dream.
                 Have you <br> owned your dream house?</p>
             <div class="flex gap-x-4">
-                <RouterLink :to="{ name: 'login' }"
+                <RouterLink :to="{ name: 'register' }"
                     class="px-6 py-4 bg-green-700 text-white font-semibold text-lg rounded-xl hover:bg-green-900 transition ease-in-out duration-500">
                     Get Started
                 </RouterLink>

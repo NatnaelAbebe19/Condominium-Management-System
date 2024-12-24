@@ -3,6 +3,9 @@ add maintenance request to the customer's navbar
  bedrooms
  floor
  location
+ sell or rent 
+ Distribution in the admin page
+
 
 The Condominium Management System (CMS) described in the document includes several key features and functionalities designed to address the issues of manual data management and streamline condominium management in Kombolcha. Here's a summary of the main features the system is expected to have:
 1. User Management

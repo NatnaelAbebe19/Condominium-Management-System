@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 import home from "../../src/assets/image/condominiumImage.jpg"
 
 </script>
@@ -14,14 +15,14 @@ import home from "../../src/assets/image/condominiumImage.jpg"
                 can be just as rewarding.
                 Have you <br> found the perfect tenants for your property?</p>
             <div class="flex gap-x-10">
-                <button
+                <RouterLink :to="{ name: 'rentPost' }"
                     class="px-6 py-4 bg-green-700 text-white font-semibold text-lg rounded-xl hover:bg-green-900 transition ease-in-out duration-500">
                     Post Your Rental
-                </button>
-                <button
+                </RouterLink>
+                <RouterLink :to="{ name: 'rentalsView' }"
                     class="px-6 py-4 border-2 border-green-700 text-green-700 font-semibold text-lg rounded-xl hover:bg-slate-200 transition ease-in-out duration-500">
                     View Your Rentals
-                </button>
+                </RouterLink>
             </div>
         </div>
         <div class="hidden xl:block xl:absolute z-0 top-28 right-0">

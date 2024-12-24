@@ -15,7 +15,7 @@ class Rental extends Model
         'floor',
         'location',
         'area', // Add area to fillable
-        'images',
+        // 'images',
         'price', // Add price to the fillable array
         'status',
         'renter_id',
@@ -38,7 +38,9 @@ class Rental extends Model
          return $this->belongsTo(User::class, 'customer_id');
      }
 
-
-
+     public function images()
+     {
+         return $this->hasMany(RentalImage::class);
+     }
 
 }

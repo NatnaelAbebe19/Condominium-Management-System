@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginView from '@/views/LoginView.vue'
-import RegisterView from '@/views/RegisterView.vue'
+import LoginView from '@/views/Auth/LoginView.vue'
+import RegisterView from '@/views/Auth/RegisterView.vue'
 import ChooseRole from '@/views/ChooseRole.vue'
 import { useAuthStore } from "@/stores/auth";
 import RenterHome from '@/views/RenterHome.vue'
@@ -8,10 +8,12 @@ import AboutView from '@/views/AboutView.vue'
 import ContactView from '@/views/ContactView.vue'
 import RentalView from '@/views/RentalView.vue'
 import RentPost from '@/views/RentPost.vue'
-import AuthenticatedAbout from '@/views/AuthenticatedAbout.vue'
+import AuthenticatedAbout from '@/views/AuthenticatedViews/AuthenticatedAbout.vue'
 import WelcomeView from '../views/WelcomeView.vue'
 import HomeView from '@/views/HomeView.vue'
-import AuthContact from '@/views/AuthContact.vue';
+import AuthContact from '@/views/AuthenticatedViews/AuthContact.vue';
+import UploadImages from "@/views/UploadImages.vue";
+import RenterRentalView from '@/views/Renter/RenterRentalView.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -46,8 +48,12 @@ const router = createRouter({
       path: '/authabout',
       name: 'authabout',
       component: AuthenticatedAbout,
-      meta: {auth: true}
     },
+    {
+      path: '/upload-images',
+      name: 'uploadImages',
+      component: UploadImages,
+    }, 
     {
       path: '/contact',
       name: 'contact',
@@ -57,26 +63,28 @@ const router = createRouter({
       path: '/authcontact',
       name: 'authcontact',
       component: AuthContact,
-      meta: {auth: true}
     },
     {
       path: '/rentals',
       name: 'rentals',
       component: RentalView,
-     
+      meta: {auth: true}
     },
     {
       path: '/rentPost',
       name: 'rentPost',
       component: RentPost,
- 
     },
-
     {
       path: '/renterHome',
       name: 'renterHome',
       component: RenterHome,
       meta: { auth: true },
+    }, 
+    {
+      path: '/rentalsView', 
+      name: 'rentalsView', 
+      component: RenterRentalView 
     }
   ],
 });
@@ -93,6 +101,7 @@ router.beforeEach(async (to, from) => {
     return {name: "login"}
   }
   
+
 });
 
 export default router
