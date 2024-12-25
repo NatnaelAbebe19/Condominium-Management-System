@@ -6,6 +6,7 @@ import { onMounted, ref } from 'vue';
 
 const { getAllRentals } = useRentalStore();
 const rentals = ref([]);
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 onMounted(async () => {
     try {
@@ -15,6 +16,7 @@ onMounted(async () => {
     } catch (error) {
         console.error('Error fetching rentals:', error);
     }
+    console.log(baseUrl);
 });
 
 
@@ -69,25 +71,28 @@ onMounted(async () => {
                     </button>
                 </div>
             </div>
-
-
             <div v-if="rentals.length > 0" class="mt-16 grid gap-x-4 gap-y-4 lg:grid-cols-2 xl:grid-cols-3">
                 <div v-for="rental in rentals" :key="rental.id" class="rental-card">
-                    <h2>{{ rental.location }}</h2>
-                    <p>Bedrooms: {{ rental.bedrooms }}</p>
-                    <p>Floor: {{ rental.floor }}</p>
-                    <p>Area: {{ rental.area }} sqm</p>
-                    <p>Price: ${{ rental.price }}</p>
-                    <p>Status: {{ rental.status }}</p>
                     <div v-if="rental.images.length > 0">
-
-                        <img v-for="image in rental.images" :key="image.id" :src="`/storage/${image.image}`"
-                            :alt="`${image.image}`" class="rental-image" />
+                        <img v-for="(image) in rental.images.slice(0, 1)" :key="image.id"
+                            :src="`${baseUrl}/storage/${image.image}`" alt="Rental Image" class="rental-image" />
+                        <button v-if="rental.images.length > 2" class="mt-2 text-blue-500 hover:underline">
+                            See more images
+                        </button>
                     </div>
+                    <h2><span class="font-bold">Location:</span> {{ rental.location }}</h2>
+                    <p><span class="font-bold">Bedrooms:</span> {{ rental.bedrooms }}</p>
+                    <p><span class="fontt-bold">Floor:</span> {{ rental.floor }}</p>
+                    <p><span class="font-bold">Area:</span> {{ rental.area }} sqm</p>
+                    <p><span class="font-bold">Price: $</span>{{ rental.price }}</p>
+                    <p><span class="font-bold">Status: </span>{{ rental.status }}</p>
+                    <button class="mt-6 w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-800 transition">
+                        Reserve Now
+                    </button>
                 </div>
             </div>
             <div v-else>
-                <p>No programs available.</p>
+                <p>No Rentals available.</p>
             </div>
         </div>
 
@@ -107,3 +112,4 @@ onMounted(async () => {
     margin-top: 8px;
 }
 </style>
+// hasbab

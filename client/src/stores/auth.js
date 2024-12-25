@@ -15,9 +15,10 @@ export const useAuthStore = defineStore("authStore", {
     async getUser() {
       if (localStorage.getItem("token")) {
         const res = await fetch("/api/user", {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+                'Content-Type': 'application/json'
+              },
         });
         const data = await res.json();
         if (res.ok) {
@@ -30,6 +31,10 @@ export const useAuthStore = defineStore("authStore", {
     async authenticate(apiRoute, formData) {
       const res = await fetch(`/api/${apiRoute}`, {
         method: "post",
+        headers: {
+          // Authorization: `Bearer ${localStorage.getItem("token")}`,
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(formData),
       });
 

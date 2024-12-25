@@ -26,7 +26,8 @@ class RentalController extends Controller
     // dd($rentals);
     return response()->json([
         'message' => 'Rentals retrieved successfully!',
-        'data' => $rentals
+        'data' => $rentals,
+        // 'images' => asset($rentals->images)
     ]);
 
     // Retrieve query parameters from the frontend

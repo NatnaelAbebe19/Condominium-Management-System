@@ -10,7 +10,7 @@ export const useRentalStore = defineStore("rentalStore", {
     actions: {
 
         async getAllRentals() {
-            const res = await fetch("/api/rentals", {
+            const res = await fetch(`/api/rentals`, {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
