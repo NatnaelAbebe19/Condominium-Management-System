@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::middleware('auth:sanctum')->group (function () {
     Route::post('/rental_image', [RentalImageController::class, 'store']);
+    Route::delete('/rental_image/{rentalImage}', [RentalImageController::class, 'destroy']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);

@@ -74,7 +74,7 @@ const handleImageUpload = async () => {
                 Home
             </RouterLink>
         </div>
-        <div class="max-w-xl mx-auto mt-10 h-[65vh]">
+        <div class="max-w-xl mx-auto mt-10 mb-40">
             <h2 class="text-3xl font-semibold text-green-700 text-center py-4">Upload Image</h2>
             <form @submit.prevent="handleImageUpload" enctype="multipart/form-data">
 

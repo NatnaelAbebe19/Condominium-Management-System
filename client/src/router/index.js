@@ -14,6 +14,7 @@ import HomeView from '@/views/HomeView.vue'
 import AuthContact from '@/views/AuthenticatedViews/AuthContact.vue';
 import UploadImages from "@/views/UploadImages.vue";
 import RenterRentalView from '@/views/Renter/RenterRentalView.vue';
+import EditRentals from '@/views/Renter/EditRentals.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -63,6 +64,12 @@ const router = createRouter({
       path: '/authcontact',
       name: 'authcontact',
       component: AuthContact,
+    },
+    {
+      path: '/editRentals/:id',
+      name: 'editRentals', 
+      component: EditRentals, 
+      props: true
     },
     {
       path: '/rentals',

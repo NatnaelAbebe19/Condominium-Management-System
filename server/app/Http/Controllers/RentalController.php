@@ -107,7 +107,6 @@ class RentalController extends Controller
         }
     }
 
-
     public function update(Request $request, Rental $rental)
 {
     $validated = $request->validate([
@@ -147,6 +146,9 @@ class RentalController extends Controller
 
 
     public function show(Rental $rental){
-        dd($rental);
+        return response()->json([
+            'message' => 'Rental retrieved successfully!',
+            'data' => $rental->load('images') // Include the images relationship
+        ]);
     }
 }

@@ -6,6 +6,8 @@ use App\Models\RentalImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+
 
 class RentalImageController extends Controller
 {
@@ -32,4 +34,19 @@ class RentalImageController extends Controller
         return response()->json(['message' => 'Error uploading image', 'error' => $e->getMessage()], 500);
     }
 }
+
+    public function destroy(RentalImage $rentalImage){
+        try {
+            // Delete the image file from the storage
+            Storage::disk('public')->delete($rentalImage->image);
+
+            // Delete the image record from the database
+            $rentalImage->delete();
+
+            return response()->json(['message' => 'Image deleted successfully'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error deleting image', 'error' => $e->getMessage()], 500);
+        }
+    }
+
 }
