@@ -6,7 +6,7 @@ import { useAuthStore } from "@/stores/auth";
 import RenterHome from '@/views/RenterHome.vue'
 import AboutView from '@/views/AboutView.vue'
 import ContactView from '@/views/ContactView.vue'
-import RentalView from '@/views/RentalView.vue'
+import RentalView from '@/views/Customer/RentalView.vue'
 import RentPost from '@/views/RentPost.vue'
 import AuthenticatedAbout from '@/views/AuthenticatedViews/AuthenticatedAbout.vue'
 import WelcomeView from '../views/WelcomeView.vue'
@@ -15,6 +15,8 @@ import AuthContact from '@/views/AuthenticatedViews/AuthContact.vue';
 import UploadImages from "@/views/UploadImages.vue";
 import RenterRentalView from '@/views/Renter/RenterRentalView.vue';
 import EditRentals from '@/views/Renter/EditRentals.vue';
+import RentalDetail from '@/views/Customer/RentalDetail.vue';
+import Notifications from '@/views/Renter/Notifications.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -72,11 +74,22 @@ const router = createRouter({
       props: true
     },
     {
+      path: '/showRental/:id',
+      name: 'showRental', 
+      component: RentalDetail, 
+      props: true
+    },
+    {
       path: '/rentals',
       name: 'rentals',
       component: RentalView,
       meta: {auth: true}
     },
+    {
+      path: '/notifications',
+      name: 'notifications', 
+      component: Notifications,
+    }, 
     {
       path: '/rentPost',
       name: 'rentPost',
