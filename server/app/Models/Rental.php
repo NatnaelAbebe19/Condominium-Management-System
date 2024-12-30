@@ -42,5 +42,9 @@ class Rental extends Model
      {
          return $this->hasMany(RentalImage::class);
      }
+     public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Rental;
 use App\Models\RentalImage;
 use App\Models\TemporaryImage;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 class RentalController extends Controller
@@ -13,21 +14,28 @@ class RentalController extends Controller
 {
 
     $user = auth()->user();
-    // dd($user);
-    // Check if the user has the renter role
-    if ($user->role !== 'renter') {
+
+    if ($user->role === 'renter') {
+        // Fetch rentals that belong to the logged-in user
+        $rentals = Rental::where('renter_id', $user->id)
+            ->with('images') // Include the images relationship
+            ->get();
+    } elseif ($user->role === 'user') {
+        // Fetch rentals where status is 'available'
+        $rentals = Rental::where('status', 'available')
+            ->with('images') // Include the images relationship
+            ->get();
+    } elseif ($user->role === 'admin') {
+        // Fetch all rentals regardless of their status
+        $rentals = Rental::with('images') // Include the images relationship
+            ->get();
+    } else {
         return response()->json(['message' => 'Unauthorized'], 403);
     }
 
-    // Fetch rentals that belong to the logged-in user
-    $rentals = Rental::where('renter_id', $user->id)
-        ->with('images') // Include the images relationship
-        ->get();
-    // dd($rentals);
     return response()->json([
         'message' => 'Rentals retrieved successfully!',
         'data' => $rentals,
-        // 'images' => asset($rentals->images)
     ]);
 
     // Retrieve query parameters from the frontend
@@ -115,26 +123,32 @@ class RentalController extends Controller
         'location' => 'sometimes|string|max:255',
         'area' => 'sometimes|numeric|min:1', // Validate area if provided
         'price' => 'sometimes|numeric|min:0',
-        'status' => 'sometimes|string|in:available,occupied,maintenance',
+        'status' => 'sometimes|string|in:available,reserved,maintenance',
         'customer_id' => 'nullable|exists:users,id', // Must be a valid user if provided
     ]);
 
-    // Check if the status is being set to "occupied"
+    // Check if the status is being set to "reserved"
 
 
-    if ($request->status === 'occupied' && !$request->customer_id) {
+    if ($request->status === 'reserved' && !$request->customer_id) {
         return response()->json([
-            'message' => 'Customer ID is required when setting status to "occupied".'
+            'message' => 'Customer ID is required when setting status to "reserved".'
         ], 422);
     }
 
     // Handle status and customer ID
-    if ($request->status === 'occupied') {
+    if ($request->status === 'reserved') {
         $validated['customer_id'] = $request->customer_id; // Set customer
-    } elseif ($request->status !== 'occupied') {
-        $validated['customer_id'] = null; // Clear customer ID if status changes to non-occupied
+    } elseif ($request->status !== 'reserved') {
+        $validated['customer_id'] = null; // Clear customer ID if status changes to non-reserved
     }
 
+    $user = auth()->user();
+
+
+    if($user->role === 'user'){
+        return response()->json(['message' => 'Unauthorized'], 403);
+    }
     // Update rental
     $rental->update($validated);
 
@@ -146,9 +160,40 @@ class RentalController extends Controller
 
 
     public function show(Rental $rental){
+        // dd($rental['customer_id']);
+        $customerName = User::where('id', $rental['customer_id'])->value('name');
+        // dd($customer);
         return response()->json([
             'message' => 'Rental retrieved successfully!',
-            'data' => $rental->load('images') // Include the images relationship
+            'data' => $rental->load('images'),
+            'customerName' => $customerName
         ]);
     }
+
+    public function myRents($userId)
+    {
+        // dd($userId);
+        $rentals = Rental::where('customer_id', $userId)->get()->load('images');
+
+        return response()->json($rentals);
+    }
+
+    public function terminateDeal(Request $request, Rental $rental)
+    {
+
+        // dd(auth()->id());
+        // Ensure the authenticated user is the customer
+        if ($rental->customer_id !== auth()->id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        // Update the rental status and remove the customer ID
+        $rental->update([
+            'status' => 'available',
+            'customer_id' => null,
+        ]);
+
+        return response()->json(['message' => 'Deal terminated successfully']);
+    }
+
 }

@@ -17,6 +17,7 @@ import RenterRentalView from '@/views/Renter/RenterRentalView.vue';
 import EditRentals from '@/views/Renter/EditRentals.vue';
 import RentalDetail from '@/views/Customer/RentalDetail.vue';
 import Notifications from '@/views/Renter/Notifications.vue';
+import MyRents from '@/views/Customer/MyRents.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -105,7 +106,12 @@ const router = createRouter({
       path: '/rentalsView', 
       name: 'rentalsView', 
       component: RenterRentalView 
-    }
+    }, 
+    {path: '/my-rents/:userId',
+    name: 'myRent',
+    component: MyRents,
+    meta: { auth: true },
+  }
   ],
 });
 

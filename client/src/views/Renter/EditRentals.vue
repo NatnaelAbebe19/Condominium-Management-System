@@ -92,41 +92,43 @@ const handleImageUpload = async (event) => {
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <label for="location" class="block mb-2 text-sm font-medium text-gray-900 ">Location</label>
-                        <input type="text" id="location" v-model="form.location"
+                        <input type="text" id="location" v-model="form.location" :readonly="form.status === 'reserved'"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="Bole" required />
                     </div>
                     <div>
                         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 ">Select the
                             Status</label>
-                        <select id="countries" v-model="form.status"
+                        <select id="countries" v-model="form.status" :disabled="form.status === 'reserved'"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option value="available">Available</option>
-                            <option disabled value="occupied">Occupied</option>
+                            <option disabled value="reserved">Reserved</option>
                             <option value="maintenance">Maintenance</option>
                         </select>
                     </div>
                     <div>
                         <label for="bedrooms" class="block mb-2 text-sm font-medium text-gray-900 ">bedrooms</label>
                         <input type="number" id="bedrooms" v-model="form.bedrooms"
+                            :readonly="form.status === 'reserved'"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="" required />
                     </div>
                     <div>
                         <label for="area" class="block mb-2 text-sm font-medium text-gray-900 ">area</label>
-                        <input type="number" id="area" v-model="form.area"
+                        <input type="number" id="area" v-model="form.area" :readonly="form.status === 'reserved'"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="" required />
                     </div>
                     <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-gray-900 ">price</label>
-                        <input type="number" id="price" v-model="form.price"
+                        <input type="number" id="price" v-model="form.price" :readonly="form.status === 'reserved'"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="" required />
                     </div>
                     <div>
                         <label for="floor" class="block mb-2 text-sm font-medium text-gray-900 ">Floor</label>
                         <input type="number" id="floor" max="6" v-model="form.floor"
+                            :readonly="form.status === 'reserved'"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="" required />
                     </div>
@@ -138,7 +140,8 @@ const handleImageUpload = async (event) => {
                         <div v-for="image in form.images" :key="image.id" class="relative">
                             <img :src="`${baseUrl}/storage/${image.image}`" alt="Rental Image"
                                 class="w-auto h-52 object-cover rounded-lg" />
-                            <button type="button" @click="handleDeleteImage(image.id)" class="absolute top-2 right-2 ">
+                            <button v-if="form.status !== 'reserved'" type="button" @click="handleDeleteImage(image.id)"
+                                class="absolute top-2 right-2 ">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="20" width="20">
                                     <path fill="#FF0000"
                                         d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" />

@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChapaController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\RentalImageController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Middleware\CorsMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +20,33 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/rentals', [RentalController::class, 'store'])->name('rentals.store'); // Create a new rental
     Route::put('/rentals/{rental}', [RentalController::class, 'update'])->name('rentals.update'); // Update a rental
     Route::delete('/rentals/{rental}', [RentalController::class, 'destroy'])->name('rentals.destroy'); // Delete a rental
+    Route::get('/my-rents/{userId}', [RentalController::class, 'myRents'])->name('myRent');
+    Route::post('/terminate-deal/{rental}', [RentalController::class, 'terminateDeal'])->name('terminateDeal');
 });
 
 Route::middleware('auth:sanctum')->group (function () {
     Route::post('/rental_image', [RentalImageController::class, 'store']);
     Route::delete('/rental_image/{rentalImage}', [RentalImageController::class, 'destroy']);
+});
+
+// Route::middleware(CorsMiddleware::class)->group(function () {
+//     Route::post('/pay', [ChapaController::class, 'initialize'])->name('pay')->middleware('auth:sanctum');
+//     Route::get('/callback/{reference}', [ChapaController::class, 'callback'])->name('callback')->middleware('auth:sanctum');
+// });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/notifications', [NotificationController::class, 'index']);
+    Route::get('/notifications/unread-count', [NotificationController::class, 'unreadCount']);
+    Route::post('/notifications/{id}/mark-as-read', [NotificationController::class, 'markNotificationAsRead']);
+    Route::put('/notifications/{id}', [NotificationController::class, 'updateNotification']);
+    Route::post('/notifications/mark-as-read', [NotificationController::class, 'markAsRead']);
+    Route::post('/reservations', [ReservationController::class, 'store']);
+    Route::put('/reservations/{reservation}', [ReservationController::class, 'update']);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/pay', [ChapaController::class, 'initialize'])->name('pay');
+    Route::get('/callback/{reference}', [ChapaController::class, 'callback'])->name('callback');
 });
 
 Route::post('/register', [AuthController::class, 'register']);

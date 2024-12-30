@@ -39,6 +39,23 @@ export const useRentalStore = defineStore("rentalStore", {
                 this.errors = { general: "An unexpected error occurred." };
             }
         },
+        async getRentedById(id) {
+            try {
+                const res = await fetch(`/api/my-rents/${id}`, {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        'Content-Type': 'application/json'
+                    },
+                });
+                const data = await res.json();
+                console.log(data);
+                return data;
+            } catch (error) {
+                console.error("An error occurred while fetching the rental:", error);
+                this.errors = { general: "An unexpected error occurred." };
+            }
+        },
         async createRental(formData) {
             try {
                 const res = await fetch("/api/rentals", {

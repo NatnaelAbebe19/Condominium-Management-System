@@ -1,6 +1,9 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { useAuthStore } from "@/stores/auth";
 import home from "../../src/assets/image/home-img.png"
+const authStore = useAuthStore();
+console.log(authStore.user.role);
 </script>
 
 <template>
@@ -12,7 +15,12 @@ import home from "../../src/assets/image/home-img.png"
             <p class="font-normal text-xl text-gray-400 leading-relaxed mb-12">Having a sweet home is everyone's dream.
                 Have you <br> owned your dream house?</p>
             <div class="flex gap-x-4">
-                <RouterLink :to="{ name: 'register' }"
+                <RouterLink v-if="authStore.user.role === 'user'"
+                    :to="{ name: 'myRent', params: { userId: authStore.user.id } }"
+                    class="px-6 py-4 bg-green-700 text-white font-semibold text-lg rounded-xl hover:bg-green-900 transition ease-in-out duration-500">
+                    My Rents
+                </RouterLink>
+                <RouterLink v-else :to="{ name: 'register' }"
                     class="px-6 py-4 bg-green-700 text-white font-semibold text-lg rounded-xl hover:bg-green-900 transition ease-in-out duration-500">
                     Get Started
                 </RouterLink>
