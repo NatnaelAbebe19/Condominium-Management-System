@@ -4,6 +4,7 @@ import { useAuthStore } from "@/stores/auth";
 import { ref, reactive, onMounted } from 'vue';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import axios from 'axios';
+import Logo from "@/assets/image/Logo.png"
 
 const authStore = useAuthStore();
 console.log('role: ', authStore.user.role);
@@ -49,9 +50,11 @@ const state = reactive({
 <template>
     <nav class="flex-wrap lg:flex items-center py-14 xl:relative z-10 border-b-2">
 
-        <div class="flex items-center justify-between mb-10 lg:mb-0">
+        <div class="flex items-center justify-between mb-10 lg:mb-0 mr-60">
             <RouterLink :to="{ name: 'home' }">
-                <h2 class=" text-green-700 text-3xl font-bold">Kombolcha CMS</h2>
+                <div class="logo absolute left-5 top-10">
+                    <img :src="Logo" alt="FetaNa Logo" class="w-[150px]" />
+                </div>
             </RouterLink>
         </div>
 
