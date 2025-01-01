@@ -18,6 +18,7 @@ import EditRentals from '@/views/Renter/EditRentals.vue';
 import RentalDetail from '@/views/Customer/RentalDetail.vue';
 import Notifications from '@/views/Renter/Notifications.vue';
 import MyRents from '@/views/Customer/MyRents.vue';
+import AdminHome from '@/views/Admin/AdminHome.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -107,11 +108,18 @@ const router = createRouter({
       name: 'rentalsView', 
       component: RenterRentalView 
     }, 
-    {path: '/my-rents/:userId',
-    name: 'myRent',
-    component: MyRents,
-    meta: { auth: true },
-  }
+    {
+      path: '/my-rents/:userId',
+      name: 'myRent',
+      component: MyRents,
+      meta: { auth: true },
+  }, 
+  {
+    path: '/admin',
+    name: 'adminHome',
+    component: AdminHome,
+    meta: { admin: true },
+  },
   ],
 });
 
@@ -120,13 +128,21 @@ router.beforeEach(async (to, from) => {
   const authStore = useAuthStore();
   await authStore.getUser();
 
-  if (authStore.user?.role === "renter" && to.meta.auth && to.name !== "renterHome") {
-    return { name: "renterHome" };
-  }
   if(!authStore.user && to.meta.auth){
     return {name: "login"}
   }
+  // if (authStore.user?.role === 'admin' && to.name !== 'adminHome') {
+  //   return { name: 'adminHome' };
+  // }
+  // if (authStore.user?.role === "admin" && to.meta.auth) {
+  //   return { name: "adminHome" };
+  // }
+  if (authStore.user?.role === "renter" && to.meta.auth && to.name !== "renterHome") {
+    return { name: "renterHome" };
+  }
   
+
+
 
 });
 

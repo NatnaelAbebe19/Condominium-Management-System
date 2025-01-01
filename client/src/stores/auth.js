@@ -48,7 +48,13 @@ export const useAuthStore = defineStore("authStore", {
         console.log("data", data.user.role);
         this.user = data.user;
 
-        router.push({ name: "home" });
+        if (data.user.role === 'admin') {
+          router.push({ name: 'adminHome' });
+        } else if (data.user.role === 'renter') {
+          router.push({ name: 'renterHome' });
+        } else {
+          router.push({ name: 'home' });
+        }
       }
     },
 

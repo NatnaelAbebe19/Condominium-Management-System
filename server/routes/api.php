@@ -6,6 +6,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\RentalImageController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\CorsMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/rentals/{rental}', [RentalController::class, 'destroy'])->name('rentals.destroy'); // Delete a rental
     Route::get('/my-rents/{userId}', [RentalController::class, 'myRents'])->name('myRent');
     Route::post('/terminate-deal/{rental}', [RentalController::class, 'terminateDeal'])->name('terminateDeal');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
 });
 
 Route::middleware('auth:sanctum')->group (function () {
