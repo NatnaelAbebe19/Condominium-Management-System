@@ -28,14 +28,14 @@ const authStore = useAuthStore();
                     </svg>
                     <h1 class="cursor-pointer text-xl">Home</h1>
                 </RouterLink>
-                <RouterLink :to="{ name: 'adminHome' }" class="flex items-center gap-x-3 text-white">
+                <RouterLink :to="{ name: 'adminRentalList' }" class="flex items-center gap-x-3 text-white">
                     <svg class="size-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path
                             d="M160 80c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 352c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-352zM0 272c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 160c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48L0 272zM368 96l32 0c26.5 0 48 21.5 48 48l0 288c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48z" />
                     </svg>
                     <h1 class="cursor-pointer text-xl">Rentals</h1>
                 </RouterLink>
-                <RouterLink :to="{ name: 'adminHome' }" class="flex items-center gap-x-3 text-white">
+                <RouterLink :to="{ name: 'adminUserList' }" class="flex items-center gap-x-3 text-white">
                     <svg class="size-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path
                             d="M40 48C26.7 48 16 58.7 16 72l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24L40 48zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM16 232l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-48 0c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-48 0z" />
@@ -43,11 +43,12 @@ const authStore = useAuthStore();
                     <h1 class="cursor-pointer text-xl">Users</h1>
                 </RouterLink>
                 <RouterLink :to="{ name: 'adminHome' }" class="flex items-center gap-x-3 text-white">
-                    <svg class="size-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <svg class="size-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <path
-                            d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM200 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                            d="M274.9 34.3c-28.1-28.1-73.7-28.1-101.8 0L34.3 173.1c-28.1 28.1-28.1 73.7 0 101.8L173.1 413.7c28.1 28.1 73.7 28.1 101.8 0L413.7 274.9c28.1-28.1 28.1-73.7 0-101.8L274.9 34.3zM200 224a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM96 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 376a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM352 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 120a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm96 328c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-114.3 0c11.6 36 3.1 77-25.4 105.5L320 413.8l0 34.2zM480 328a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
                     </svg>
-                    <h1 class="cursor-pointer text-xl">Maintenance</h1>
+
+                    <h1 class="cursor-pointer text-xl">Distribution</h1>
                 </RouterLink>
                 <div class="flex items-center gap-x-3 text-white">
                     <svg class="size-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -78,7 +79,7 @@ const authStore = useAuthStore();
                     </h1>
                 </div>
             </div>
-            <div class="pt-3 pl-3 w-full">
+            <div class="pt-3 pl-10 w-full">
                 <slot />
             </div>
         </div>

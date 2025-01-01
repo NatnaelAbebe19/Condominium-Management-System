@@ -23,19 +23,19 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/rentals/{rental}', [RentalController::class, 'destroy'])->name('rentals.destroy'); // Delete a rental
     Route::get('/my-rents/{userId}', [RentalController::class, 'myRents'])->name('myRent');
     Route::post('/terminate-deal/{rental}', [RentalController::class, 'terminateDeal'])->name('terminateDeal');
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+});
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 });
 
 Route::middleware('auth:sanctum')->group (function () {
     Route::post('/rental_image', [RentalImageController::class, 'store']);
     Route::delete('/rental_image/{rentalImage}', [RentalImageController::class, 'destroy']);
 });
-
-// Route::middleware(CorsMiddleware::class)->group(function () {
-//     Route::post('/pay', [ChapaController::class, 'initialize'])->name('pay')->middleware('auth:sanctum');
-//     Route::get('/callback/{reference}', [ChapaController::class, 'callback'])->name('callback')->middleware('auth:sanctum');
-// });
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/notifications', [NotificationController::class, 'index']);

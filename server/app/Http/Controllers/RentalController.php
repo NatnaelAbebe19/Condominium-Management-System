@@ -169,6 +169,12 @@ class RentalController extends Controller
             'customerName' => $customerName
         ]);
     }
+    public function destroy(Rental $rental)
+    {
+        $rental->delete();
+
+        return response()->json(['message' => 'Rental deleted successfully!']);
+    }
 
     public function myRents($userId)
     {

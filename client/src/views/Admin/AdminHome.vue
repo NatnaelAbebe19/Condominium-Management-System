@@ -51,7 +51,7 @@ onMounted(async () => {
 
 <template>
     <AdminLayout>
-        <div class="py-8 ml-10">
+        <div class="py-8">
             <h1 class="text-bg-light-green font-bold text-3xl sm:text-4xl md:text-5xl">
                 System Status
             </h1>
