@@ -19,6 +19,8 @@ import RentalDetail from '@/views/Customer/RentalDetail.vue';
 import Notifications from '@/views/Renter/Notifications.vue';
 import MyRents from '@/views/Customer/MyRents.vue';
 import AdminHome from '@/views/Admin/AdminHome.vue';
+import AdminUserList from '@/views/Admin/AdminUserList.vue';
+import AdminRentalList from '@/views/Admin/AdminRentalList.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -120,6 +122,18 @@ const router = createRouter({
     component: AdminHome,
     meta: { admin: true },
   },
+  {
+    path: '/adminUserList', 
+    name: 'adminUserList', 
+    component: AdminUserList,
+    meta: {admin: true}
+  },
+  {
+    path: '/adminRentalList', 
+    name: 'adminRentalList', 
+    component: AdminRentalList,
+    meta: {admin: true}
+  } 
   ],
 });
 
