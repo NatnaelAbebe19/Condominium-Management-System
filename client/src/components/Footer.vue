@@ -1,5 +1,6 @@
 <script setup>
 import image1 from "../assets/image/footer-logo.png"
+import Logo from "@/assets/image/Logo.png"
 </script>
 
 <template>
@@ -10,7 +11,9 @@ import image1 from "../assets/image/footer-logo.png"
             <div class="flex flex-col lg:flex-row justify-between">
                 <div class="text-center lg:text-left mb-10 lg:mb-0">
                     <div class="flex justify-center lg:justify-start mb-5">
-                        <h2 class="font-bold text-3xl text-green-700">Kombolcha CMS</h2>
+                        <div class="logo">
+                            <img :src="Logo" alt="FetaNa Logo" class="w-[150px]" />
+                        </div>
                     </div>
 
                     <p class="font-light text-gray-400 text-xl mb-10">Get your dream house with <br>Kombolcha CMS</p>

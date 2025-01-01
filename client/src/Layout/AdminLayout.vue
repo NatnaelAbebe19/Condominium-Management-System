@@ -42,7 +42,7 @@ const authStore = useAuthStore();
                     </svg>
                     <h1 class="cursor-pointer text-xl">Users</h1>
                 </RouterLink>
-                <RouterLink :to="{ name: 'adminHome' }" class="flex items-center gap-x-3 text-white">
+                <RouterLink :to="{ name: 'adminDistributions' }" class="flex items-center gap-x-3 text-white">
                     <svg class="size-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <path
                             d="M274.9 34.3c-28.1-28.1-73.7-28.1-101.8 0L34.3 173.1c-28.1 28.1-28.1 73.7 0 101.8L173.1 413.7c28.1 28.1 73.7 28.1 101.8 0L413.7 274.9c28.1-28.1 28.1-73.7 0-101.8L274.9 34.3zM200 224a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM96 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 376a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM352 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 120a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm96 328c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-114.3 0c11.6 36 3.1 77-25.4 105.5L320 413.8l0 34.2zM480 328a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
@@ -50,13 +50,13 @@ const authStore = useAuthStore();
 
                     <h1 class="cursor-pointer text-xl">Distribution</h1>
                 </RouterLink>
-                <div class="flex items-center gap-x-3 text-white">
+                <!-- <div class="flex items-center gap-x-3 text-white">
                     <svg class="size-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path
                             d="M224 0c-17.7 0-32 14.3-32 32l0 19.2C119 66 64 130.6 64 208l0 18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416l384 0c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8l0-18.8c0-77.4-55-142-128-156.8L256 32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3l-64 0-64 0c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z" />
                     </svg>
                     <h1 class="cursor-pointer text-xl">Notifications</h1>
-                </div>
+                </div> -->
             </div>
             <div class="flex cursor-pointer items-center gap-x-2 text-white">
                 <svg class="size-5 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

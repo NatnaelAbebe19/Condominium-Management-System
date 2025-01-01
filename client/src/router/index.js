@@ -21,6 +21,7 @@ import MyRents from '@/views/Customer/MyRents.vue';
 import AdminHome from '@/views/Admin/AdminHome.vue';
 import AdminUserList from '@/views/Admin/AdminUserList.vue';
 import AdminRentalList from '@/views/Admin/AdminRentalList.vue';
+import AdminDistributions from '@/views/Admin/AdminDistributions.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -132,6 +133,12 @@ const router = createRouter({
     path: '/adminRentalList', 
     name: 'adminRentalList', 
     component: AdminRentalList,
+    meta: {admin: true}
+  }, 
+  {
+    path: '/adminDistributions',
+    name: 'adminDistributions',
+    component: AdminDistributions,
     meta: {admin: true}
   } 
   ],
