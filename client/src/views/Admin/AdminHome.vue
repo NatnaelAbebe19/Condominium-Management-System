@@ -51,21 +51,35 @@ onMounted(async () => {
 
 <template>
     <AdminLayout>
-        <div class="py-8">
+        <div class="py-8 ml-10">
             <h1 class="text-bg-light-green font-bold text-3xl sm:text-4xl md:text-5xl">
                 Admin Dashboard
             </h1>
             <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white shadow rounded-lg p-6">
                     <h2 class="text-xl font-bold mb-4">Available Rentals</h2>
-                    <p class="text-2xl font-semibold">{{ rentalCount }}</p>
+                    <div class="flex gap-x-4 items-center">
+                        <svg class="size-7 fill-green-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path
+                                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+                        </svg>
+
+                        <p class="text-2xl font-semibold">{{ rentalCount }}</p>
+                    </div>
                 </div>
                 <div class="bg-white shadow rounded-lg p-6">
                     <h2 class="text-xl font-bold mb-4">Total Users</h2>
-                    <p class="text-2xl font-semibold">{{ userCount }}</p>
+                    <div class="flex gap-x-4">
+                        <svg class="size-7 fill-green-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path
+                                d="M64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16l80 0 0-64c0-26.5 21.5-48 48-48s48 21.5 48 48l0 64 80 0c8.8 0 16-7.2 16-16l0-384c0-8.8-7.2-16-16-16L64 48zM0 64C0 28.7 28.7 0 64 0L320 0c35.3 0 64 28.7 64 64l0 384c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 64zm88 40c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16l0 48c0 8.8-7.2 16-16 16l-48 0c-8.8 0-16-7.2-16-16l0-48zM232 88l48 0c8.8 0 16 7.2 16 16l0 48c0 8.8-7.2 16-16 16l-48 0c-8.8 0-16-7.2-16-16l0-48c0-8.8 7.2-16 16-16zM88 232c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16l0 48c0 8.8-7.2 16-16 16l-48 0c-8.8 0-16-7.2-16-16l0-48zm144-16l48 0c8.8 0 16 7.2 16 16l0 48c0 8.8-7.2 16-16 16l-48 0c-8.8 0-16-7.2-16-16l0-48c0-8.8 7.2-16 16-16z" />
+                        </svg>
+
+                        <p class="text-2xl font-semibold">{{ userCount }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="flex gap-x-16">
+            <div class="flex gap-x-16 items-center">
                 <div class="mt-8 w-[350px] h-[350px]">
                     <h2 class="text-2xl font-bold mb-4">User Roles</h2>
                     <Doughnut :data="{
