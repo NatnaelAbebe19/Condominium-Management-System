@@ -42,7 +42,7 @@ To run the system, ensure you have the following installed:
    ```
    Update the following variables:
    ```env
-   APP_URL=http://localhost](http://127.0.0.1:8000
+   APP_URL=http://127.0.0.1:8000
    DB_CONNECTION=sqlite
    FILESYSTEM_DISK=public
    ```
