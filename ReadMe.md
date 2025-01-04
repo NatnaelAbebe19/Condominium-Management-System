@@ -27,7 +27,7 @@ To run the system, ensure you have the following installed:
 
 1. Clone the repository and navigate to the backend directory:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/NatnaelAbebe19/Condominium-Management-System.git
    cd server
    ```
 
@@ -42,7 +42,7 @@ To run the system, ensure you have the following installed:
    ```
    Update the following variables:
    ```env
-   APP_URL=http://localhost
+   APP_URL=http://localhost](http://127.0.0.1:8000
    DB_CONNECTION=sqlite
    FILESYSTEM_DISK=public
    ```
