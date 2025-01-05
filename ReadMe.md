@@ -1,6 +1,6 @@
 # Condominium Management System
 
-The Condominium Management System is a web-based platform designed to streamline the management of rental properties, including condominiums. The system allows property owners to list their units for rents & facilitates seamless interactions between property owners and renters. It integrates Vue.js for the frontend and Laravel for the backend.
+The Condominium Management System is a web-based platform designed to streamline the management of rental properties, including condominiums. The system allows property owners to list their units for rent and facilitates seamless interactions between property owners and renters. It integrates Vue.js for the frontend and Laravel for the backend.
 
 ## Features
 
