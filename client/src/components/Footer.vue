@@ -11,12 +11,14 @@ import Logo from "@/assets/image/Logo.png"
             <div class="flex flex-col lg:flex-row justify-between">
                 <div class="text-center lg:text-left mb-10 lg:mb-0">
                     <div class="flex justify-center lg:justify-start mb-5">
-                        <div class="logo">
-                            <img :src="Logo" alt="FetaNa Logo" class="w-[150px]" />
-                        </div>
+                        <RouterLink :to="{ name: 'home' }">
+                            <div class="logo">
+                                <img :src="Logo" alt="" class="w-[150px]" />
+                            </div>
+                        </RouterLink>
                     </div>
 
-                    <p class="font-light text-gray-400 text-xl mb-10">Get your dream house with <br>Kombolcha CMS</p>
+                    <p class="font-light text-gray-400 text-xl mb-10">Find your perfect home with <br>Kombolcha CMS</p>
 
                     <div class="flex items-center justify-center lg:justify-start space-x-5">
                         <a href="#"
@@ -37,60 +39,58 @@ import Logo from "@/assets/image/Logo.png"
                 </div>
 
                 <div class="text-center lg:text-left mb-10 lg:mb-0">
-                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Sitemap</h4>
+                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Navigation</h4>
 
                     <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Home</a>
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">
+                        <RouterLink :to="{ name: 'welcome' }">Home</RouterLink>
+                    </a>
 
                     <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Features</a>
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">
+                        <RouterLink :to="{ name: 'rentals' }">Rentals</RouterLink>
+                    </a>
 
                     <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Gallery</a>
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">
+                        <RouterLink :to="{ name: 'contact' }">Contact</RouterLink>
+                    </a>
 
                     <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Testimoni</a>
-
-                    <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Book
-                        a meeting</a>
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">
+                        <RouterLink :to="{ name: 'about' }">About</RouterLink>
+                    </a>
                 </div>
 
                 <div class="text-center lg:text-left mb-10 lg:mb-0">
-                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Landing</h4>
+                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Resources</h4>
 
                     <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Mobile
-                        App</a>
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Blog</a>
 
                     <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Property</a>
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Guides</a>
 
                     <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Personal
-                        Website</a>
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Support</a>
 
                     <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Web
-                        Developer</a>
-
-                    <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Online
-                        Course</a>
-
-                    <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Donation</a>
-                </div>
-
-                <div class="text-center lg:text-left">
-                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Utility</h4>
-
-                    <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">FAQ</a>
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Privacy
+                        Policy</a>
 
                     <a href="#"
                         class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Terms
-                        & Conditions</a>
+                        of Service</a>
+                </div>
+
+                <div class="text-center lg:text-left">
+                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Company</h4>
+
+                    <a href="#"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Careers</a>
+
+                    <a href="#"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Press</a>
                 </div>
             </div>
         </div>
